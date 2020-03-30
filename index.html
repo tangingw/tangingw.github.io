@@ -19,6 +19,10 @@
         <div id="covid-data">
             <h3>Today's (2020-03-30) Malaysia Covid-19 Status</h3>
             <div id="my-bar" style="width: 60%; height: 300px;"></div>
+            <h3>Daily Report on Cases/Death in Malaysia</h3>
+            <div id="my-line" style="width: 60%; height: 300px;"></div>
+            <h3>Total Cases/Death in Malaysia</h3>
+            <div id="ag-line" style="width: 60%; height: 300px;"></div>
         </div>
         <h3>SOP/Guidelines from MoH:
             <a href="http://www.moh.gov.my/index.php/pages/view/2019-ncov-wuhan-guidelines">Click Here</a> for MoH Guidelines
@@ -79,6 +83,28 @@
                                 labels: ['number']
                             }
                         );
+
+                        Morris.Line(
+                            {
+                                element: 'my-line',
+                                data: [{"date": "29-02-2020", "Cases": 2, "Deaths": 0}, {"date": "01-03-2020", "Cases": 0, "Deaths": 0}, {"date": "02-03-2020", "Cases": 4, "Deaths": 0}, {"date": "04-03-2020", "Cases": 7, "Deaths": 0}, {"date": "05-03-2020", "Cases": 14, "Deaths": 0}, {"date": "06-03-2020", "Cases": 0, "Deaths": 0}, {"date": "07-03-2020", "Cases": 33, "Deaths": 0}, {"date": "08-03-2020", "Cases": 10, "Deaths": 0}, {"date": "09-03-2020", "Cases": 6, "Deaths": 0}, {"date": "10-03-2020", "Cases": 18, "Deaths": 0}, {"date": "11-03-2020", "Cases": 12, "Deaths": 0}, {"date": "12-03-2020", "Cases": 20, "Deaths": 0}, {"date": "13-03-2020", "Cases": 9, "Deaths": 0}, {"date": "14-03-2020", "Cases": 39, "Deaths": 0}, {"date": "15-03-2020", "Cases": 41, "Deaths": 0}, {"date": "16-03-2020", "Cases": 190, "Deaths": 0}, {"date": "17-03-2020", "Cases": 125, "Deaths": 0}, {"date": "18-03-2020", "Cases": 120, "Deaths": 2}, {"date": "19-03-2020", "Cases": 117, "Deaths": 0}, {"date": "20-03-2020", "Cases": 110, "Deaths": 0}, {"date": "21-03-2020", "Cases": 130, "Deaths": 0}, {"date": "22-03-2020", "Cases": 153, "Deaths": 2}, {"date": "23-03-2020", "Cases": 123, "Deaths": 6}, {"date": "24-03-2020", "Cases": 212, "Deaths": 4}, {"date": "25-03-2020", "Cases": 106, "Deaths": 1}, {"date": "26-03-2020", "Cases": 172, "Deaths": 4}, {"date": "27-03-2020", "Cases": 235, "Deaths": 4}, {"date": "28-03-2020", "Cases": 130, "Deaths": 3}, {"date": "29-03-2020", "Cases": 159, "Deaths": 1}, {"date": "30-03-2020", "Cases": 150, "Deaths": 7}],
+                                xkey: 'date',
+                                parseTime: false,
+                                ykeys: ["Cases", "Deaths"],
+                                labels: ["Cases", "Deaths"]
+                            }
+                        )
+
+                        Morris.Line(
+                            {
+                                element: 'ag-line',
+                                data: [{"date": "29-02-2020", "Cases": 25, "Deaths": 0}, {"date": "01-03-2020", "Cases": 25, "Deaths": 0}, {"date": "02-03-2020", "Cases": 29, "Deaths": 0}, {"date": "04-03-2020", "Cases": 36, "Deaths": 0}, {"date": "05-03-2020", "Cases": 50, "Deaths": 0}, {"date": "06-03-2020", "Cases": 50, "Deaths": 0}, {"date": "07-03-2020", "Cases": 83, "Deaths": 0}, {"date": "08-03-2020", "Cases": 93, "Deaths": 0}, {"date": "09-03-2020", "Cases": 99, "Deaths": 0}, {"date": "10-03-2020", "Cases": 117, "Deaths": 0}, {"date": "11-03-2020", "Cases": 129, "Deaths": 0}, {"date": "12-03-2020", "Cases": 149, "Deaths": 0}, {"date": "13-03-2020", "Cases": 158, "Deaths": 0}, {"date": "14-03-2020", "Cases": 197, "Deaths": 0}, {"date": "15-03-2020", "Cases": 238, "Deaths": 0}, {"date": "16-03-2020", "Cases": 428, "Deaths": 0}, {"date": "17-03-2020", "Cases": 553, "Deaths": 0}, {"date": "18-03-2020", "Cases": 673, "Deaths": 2}, {"date": "19-03-2020", "Cases": 790, "Deaths": 2}, {"date": "20-03-2020", "Cases": 900, "Deaths": 2}, {"date": "21-03-2020", "Cases": 1030, "Deaths": 2}, {"date": "22-03-2020", "Cases": 1183, "Deaths": 4}, {"date": "23-03-2020", "Cases": 1306, "Deaths": 10}, {"date": "24-03-2020", "Cases": 1518, "Deaths": 14}, {"date": "25-03-2020", "Cases": 1624, "Deaths": 15}, {"date": "26-03-2020", "Cases": 1796, "Deaths": 19}, {"date": "27-03-2020", "Cases": 2031, "Deaths": 23}, {"date": "28-03-2020", "Cases": 2161, "Deaths": 26}, {"date": "29-03-2020", "Cases": 2320, "Deaths": 27}, {"date": "30-03-2020", "Cases": 2470, "Deaths": 34}],
+                                xkey: 'date',
+                                parseTime: false,
+                                ykeys: ["Cases", "Deaths"],
+                                labels: ["Cases", "Deaths"]
+                            }
+                        )
                     },
                     methods: {
                         get_min_distances: function(lat, lon) {
