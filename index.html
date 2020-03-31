@@ -20,16 +20,16 @@
     <style>
         #my-bar, #my-line, #ag-line {
             width: 100%; 
-            max-width: 700px; 
+            max-width:700px; 
             height: 300px; 
             margin-left:auto; 
             margin-right:auto;
         }
-        h1, h3 {
+        h1, h3, p {
             text-align: center; 
         }
         #my-map {
-            width: 80%; max-width: 800px;
+            width: 100%;
             height: 50%;
         }
     </style>
@@ -37,11 +37,11 @@
 
         <h1>Malaysia Covid-19 Current Status</h1>
         <div id="covid-data">
-            <h3>Today's (2020-03-31) Malaysia Covid-19 Status (source:<a href="http://www.moh.gov.my/index.php">MoH Malaysia</a>)</h3>
+            <h3>Today's (2020-03-31) Malaysia Covid-19 Status (source:<a href="http://www.moh.gov.my/index.php"> MoH Malaysia</a>)</h3>
             <div id="my-bar"></div>
-            <h3>Daily Report on Cases/Death in Malaysia (source: <a href="https://www.ecdc.europa.eu/en/publications-data/download-todays-data-geographic-distribution-covid-19-cases-worldwide">European CDC</a>)</h3>
+            <h3>Daily Report on Cases/Death in Malaysia (source:<a href="https://www.ecdc.europa.eu/en/publications-data/download-todays-data-geographic-distribution-covid-19-cases-worldwide">European CDC</a>)</h3>
             <div id="my-line"></div>
-            <h3>Total Cases/Death in Malaysia (source: <a href="https://www.ecdc.europa.eu/en/publications-data/download-todays-data-geographic-distribution-covid-19-cases-worldwide">European CDC</a>)</h3>
+            <h3>Total Cases/Death in Malaysia (source:<a href="https://www.ecdc.europa.eu/en/publications-data/download-todays-data-geographic-distribution-covid-19-cases-worldwide">European CDC</a>)</h3>
             <div id="ag-line"></div>
         </div>
         <h3>SOP/Guidelines from MoH:
@@ -54,6 +54,7 @@
             <h3>Search your nearby area for Covid-19 Screening:
             <button @click=getLocation>Search</button>
             </h3>
+            <p id="note">(note: Currently only works on Chrome/Edge/Mozilla)<p>
         </div>
         <div id="my-map"></div>
         <script>
