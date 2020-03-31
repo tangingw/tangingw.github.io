@@ -28,6 +28,11 @@
         h1, h3 {
             text-align: center; 
         }
+
+        #my-map {
+            width: 100%;
+            height: 50%;
+        }
     </style>
     <body>
 
@@ -51,7 +56,7 @@
             <button @click=getLocation>Search</button>
             </h3>
         </div>
-        <div id="my-map" style="width: 100%; max-width:800px; height: 50%;"></div>
+        <div id="my-map"></div>
         <script>
 
             function calculate_distance(lat_x, lon_x, lat_y, lon_y) {
