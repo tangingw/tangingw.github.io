@@ -1,10 +1,14 @@
 <html>
     <head>	
         <title>This is my Covid-19 Page!</title>
-
+        <meta property="og:title" content="This is My Covid-19 Page">
+        <meta property="og:site_name" content="This is My Covid-19 Page">
+        <meta property="og:url" content="https://tangingw.github.io">
+        <meta property="og:description" content="This page contains updates information about Covid-19 and helps Malaysian to identify latest screening hospital around their location.">
+        <meta property="og:type" content="website">
+        <meta property="og:image" content="">
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0">               
-            
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css" integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ==" crossorigin=""/>
         <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js" integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew==" crossorigin=""></script>
         <script src="https://cdn.jsdelivr.net/npm/vue"></script>
@@ -13,16 +17,28 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.min.js"></script>      
     </head>
+    <style>
+        #my-bar, #my-line, #ag-line {
+            width: 100%; 
+            max-width:700px; 
+            height: 300px; 
+            margin-left:auto; 
+            margin-right:auto;
+        }
+        h1, h3 {
+            text-align: center; 
+        }
+    </style>
     <body>
 
         <h1>Malaysia Covid-19 Current Status</h1>
         <div id="covid-data">
-            <h3>Today's (2020-03-30) Malaysia Covid-19 Status</h3>
-            <div id="my-bar" style="width: 60%; height: 300px;"></div>
-            <h3>Daily Report on Cases/Death in Malaysia</h3>
-            <div id="my-line" style="width: 60%; height: 300px;"></div>
-            <h3>Total Cases/Death in Malaysia</h3>
-            <div id="ag-line" style="width: 60%; height: 300px;"></div>
+            <h3>Today's (2020-03-31) Malaysia Covid-19 Status (source:<a href="http://www.moh.gov.my/index.php">MoH Malaysia</a>)</h3>
+            <div id="my-bar"></div>
+            <h3>Daily Report on Cases/Death in Malaysia (source: <a href="https://www.ecdc.europa.eu/en/publications-data/download-todays-data-geographic-distribution-covid-19-cases-worldwide">European CDC</a>)</h3>
+            <div id="my-line"></div>
+            <h3>Total Cases/Death in Malaysia (source: <a href="https://www.ecdc.europa.eu/en/publications-data/download-todays-data-geographic-distribution-covid-19-cases-worldwide">European CDC</a>)</h3>
+            <div id="ag-line"></div>
         </div>
         <h3>SOP/Guidelines from MoH:
             <a href="http://www.moh.gov.my/index.php/pages/view/2019-ncov-wuhan-guidelines">Click Here</a> for MoH Guidelines
@@ -35,7 +51,7 @@
             <button @click=getLocation>Search</button>
             </h3>
         </div>
-        <div id="my-map" style="width: 100%; height: 50%;"></div>
+        <div id="my-map" style="width: 100%; max-width:800px; height: 50%;"></div>
         <script>
 
             function calculate_distance(lat_x, lon_x, lat_y, lon_y) {
@@ -72,6 +88,7 @@
                     mounted: function() {
                         Morris.Bar(
                             {
+                                barSizeRatio: 0.45,
                                 element: 'my-bar',
                                 data: [
                                     { y: 'Positive', a: this.covi_data["Positif"]},
